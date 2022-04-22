@@ -143,21 +143,16 @@ const useForm = (callback) => {
   };
 
   const handleSubmit = (event) => {
-    if (event) {
-      event.preventDefault();
-    }
+    event.preventDefault();
+
     if (Object.keys(errors).length === 0) {
       callback();
     } else {
       setErrorMessage("Please, submit required data");
+      setSubmitted(false);
       setTimeout(() => {
         setErrorMessage("");
       }, 2000);
-
-      setSubmitted(true);
-    }
-    if (submitted) {
-      navigate("/");
     }
   };
 

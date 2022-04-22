@@ -15,6 +15,8 @@ const AddProduct = () => {
   const formSubmit = () => {
     console.log("Callback function when form is submitted!");
     console.log("Form Values ", formValues);
+
+    navigate("/");
   };
 
   // custom hook to handle form input
