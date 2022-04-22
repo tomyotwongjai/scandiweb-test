@@ -1,8 +1,7 @@
 # Tools I am using for this application
-### reactJs
+### ReactJs
 ### scss
-### php(backend)
-### mysql
+### PHP + MySQL(for database)
 
 
 ## Available Scripts
