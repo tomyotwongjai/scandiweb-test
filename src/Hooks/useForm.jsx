@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { omit } from "lodash";
-import { useNavigate } from "react-router-dom";
 
 const useForm = (callback) => {
   // Form values
   const [formValues, setFormValues] = useState({});
   const [errorMessage, setErrorMessage] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const navigate = useNavigate();
 
   // Errors
   const [errors, setErrors] = useState({});
@@ -149,7 +146,6 @@ const useForm = (callback) => {
       callback();
     } else {
       setErrorMessage("Please, submit required data");
-      setSubmitted(false);
       setTimeout(() => {
         setErrorMessage("");
       }, 2000);

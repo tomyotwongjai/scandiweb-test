@@ -1,4 +1,3 @@
-import { validateYupSchema } from "formik";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useForm from "../Hooks/useForm";
@@ -24,7 +23,7 @@ const AddProduct = () => {
     useForm(formSubmit);
 
   console.log("Form Values ", errors);
-
+  console.log("Form Values ", formValues);
   console.log("Form Values ", errorMessage);
 
   return (
@@ -49,7 +48,9 @@ const AddProduct = () => {
 
       <form id="product_form" autoComplete="off" className="product__form">
         <div className="product__selection">
-          {errorMessage && <p className="error-message">{errorMessage}</p>}
+          {errorMessage && (
+            <p style={{ color: "red", fontSize: "15px" }}>{errorMessage}</p>
+          )}
           <div className="selection__container">
             <div className="inner__selection">
               <span>SKU</span>
