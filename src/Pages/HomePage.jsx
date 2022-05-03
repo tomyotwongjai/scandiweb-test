@@ -14,7 +14,7 @@ const HomePage = () => {
   // Retrieve products from the database
 
   const getProducts = () => {
-    axios.get("http://localhost/backend/products/").then((res) => {
+    axios.get("http://crud-api.infinityfreeapp.com/").then((res) => {
       console.log(res.data);
       setProducts(res.data);
     });
@@ -25,7 +25,7 @@ const HomePage = () => {
     products.forEach((p) => {
       if (p.select) {
         axios
-          .delete(`http://localhost/backend/products/${p.id}/delete`)
+          .delete(`http://crud-api.infinityfreeapp.com/${p.id}/delete`)
           .then((res) => {
             console.log(res.data);
             getProducts();

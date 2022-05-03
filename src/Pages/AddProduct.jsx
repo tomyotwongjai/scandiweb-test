@@ -4,12 +4,13 @@ import useForm from "../Hooks/useForm";
 import axios from "axios";
 import "./addproduct.scss";
 
+
 const AddProduct = () => {
   const navigate = useNavigate();
 
   const formSubmit = () => {
     axios
-      .post("http://localhost/backend/products/save", formValues)
+      .post("http://crud-api.infinityfreeapp.com/add", formValues)
       .then((res) => {
         console.log(res.data);
         navigate("/");
