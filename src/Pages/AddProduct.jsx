@@ -1,30 +1,32 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useForm from "../Hooks/useForm";
-import "./AddProduct.scss";
+import axios from "axios";
+import "./addproduct.scss";
 
 const AddProduct = () => {
-  const [select, setSelect] = useState("");
   const navigate = useNavigate();
 
-  const handleSelect = (e) => {
-    setSelect(e.target.value);
-  };
-
   const formSubmit = () => {
-    console.log("Callback function when form is submitted!");
-    console.log("Form Values ", formValues);
-
-    navigate("/");
+    axios
+      .post("http://localhost/backend/products/save", formValues)
+      .then((res) => {
+        console.log(res.data);
+        navigate("/");
+      });
+    console.log("Callback function when form is submitted!", formValues);
   };
 
   // custom hook to handle form input
-  const { handleChange, formValues, errors, errorMessage, handleSubmit } =
-    useForm(formSubmit);
-
-  console.log("Form Values ", errors);
-  console.log("Form Values ", formValues);
-  console.log("Form Values ", errorMessage);
+  const {
+    handleChange,
+    formValues,
+    errors,
+    select,
+    handleSelect,
+    errorMessage,
+    handleSubmit,
+  } = useForm(formSubmit);
 
   return (
     <main>
@@ -46,12 +48,17 @@ const AddProduct = () => {
         </div>
       </header>
 
-      <form id="product_form" autoComplete="off" className="product__form">
+      <form
+        id="product_form"
+        autoComplete="off"
+        className="product__form"
+        onSubmit={handleSubmit}
+      >
         <div className="product__selection">
-          {errorMessage && (
-            <p style={{ color: "red", fontSize: "15px" }}>{errorMessage}</p>
-          )}
           <div className="selection__container">
+            {/* {errorMessage && (
+              <p style={{ color: "red", fontSize: "15px" }}>{errorMessage}</p>
+            )} */}
             <div className="inner__selection">
               <span>SKU</span>
               <div className="inner__in-selection">
@@ -92,15 +99,28 @@ const AddProduct = () => {
               <span> Type Switcher</span>
 
               <div className="inner__in-selection">
-                <select id="productType" onChange={handleSelect}>
+                <select
+                  required
+                  id="productType"
+                  name="type"
+                  onChange={handleSelect}
+                >
                   <option
                     label="Please Select"
                     style={{ display: "none" }}
+                    value
                   ></option>
-                  <option value="1">DVD</option>
-                  <option value="2">Furniture</option>
-                  <option value="3">Book</option>
+                  <option name="dvd" value="1">
+                    DVD
+                  </option>
+                  <option name="furniture" value="2">
+                    Furniture
+                  </option>
+                  <option name="book" value="3">
+                    Book
+                  </option>
                 </select>
+                {errors.type && <span className="error">{errors.type}</span>}
               </div>
             </div>
           </div>
@@ -120,7 +140,7 @@ const AddProduct = () => {
                   />
                   {errors.size && <span className="error">{errors.size}</span>}
                 </div>
-                <p>Please provide product size.</p>
+                <p id="type_desc">Please provide product size.</p>
               </div>
             </div>
           )}
@@ -169,7 +189,7 @@ const AddProduct = () => {
                     <span className="error">{errors.length}</span>
                   )}
                 </div>
-                <p>Please provide product Dimension</p>
+                <p id="type_desc">Please provide product Dimension</p>
               </div>
             </div>
           )}
@@ -191,7 +211,7 @@ const AddProduct = () => {
                     <span className="error">{errors.weight}</span>
                   )}
                 </div>
-                <p>Please provide product Weight.</p>
+                <p id="type_desc">Please provide product Weight.</p>
               </div>
             </div>
           )}

@@ -2,12 +2,12 @@ import { useState } from "react";
 import { omit } from "lodash";
 
 const useForm = (callback) => {
+  const [select, setSelect] = useState("");
   // Form values
   const [formValues, setFormValues] = useState({});
-  const [errorMessage, setErrorMessage] = useState("");
-
   // Errors
   const [errors, setErrors] = useState({});
+  const [errorMessage, setErrorMessage] = useState("");
 
   const validate = (event, name, value) => {
     //A function to validate each input values
@@ -16,10 +16,10 @@ const useForm = (callback) => {
       case "sku":
         if (!value) {
           setErrors({ ...errors, sku: "Please, submit required data" });
-        } else if (!new RegExp(/^[A-Za-z0-9]+$/).test(value)) {
+        } else if (!new RegExp(/^[A-Za-z0-9-#]+$/).test(value)) {
           setErrors({
             ...errors,
-            sku: "Please, provide the data of indicated type(no special characters)",
+            sku: "Please provide the data of indicated type(no special characters)",
           });
         } else {
           let newObj = omit(errors, "sku");
@@ -123,6 +123,10 @@ const useForm = (callback) => {
     }
   };
 
+  const handleSelect = (e) => {
+    setSelect(e.target.value);
+  };
+
   // Handle Form Input
   const handleChange = (event) => {
     // clear any events that are not related to the input
@@ -142,7 +146,10 @@ const useForm = (callback) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (Object.keys(errors).length === 0) {
+    if (
+      Object.keys(errors).length === 0 &&
+      Object.keys(formValues).length !== 0
+    ) {
       callback();
     } else {
       setErrorMessage("Please, submit required data");
@@ -157,6 +164,8 @@ const useForm = (callback) => {
     errors,
     handleChange,
     handleSubmit,
+    handleSelect,
+    select,
     errorMessage,
   };
 };
