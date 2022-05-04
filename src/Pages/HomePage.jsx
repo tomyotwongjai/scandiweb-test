@@ -14,7 +14,7 @@ const HomePage = () => {
   // Retrieve products from the database
 
   const getProducts = () => {
-    axios.get("http://localhost/backend/products").then((res) => {
+    axios.get("https://my-crud-1.herokuapp.com/backend/products").then((res) => {
       console.log(res.data);
       setProducts(res.data);
     });
@@ -25,7 +25,7 @@ const HomePage = () => {
     products.forEach((p) => {
       if (p.select) {
         axios
-          .delete(`http://localhost/backend/products${p.id}`)
+          .delete(`https://my-crud-1.herokuapp.com/backend/products/${p.id}`)
           .then((res) => {
             console.log(res.data);
             getProducts();
