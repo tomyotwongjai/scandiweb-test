@@ -10,7 +10,7 @@ const AddProduct = () => {
 
   const formSubmit = () => {
     axios
-      .post("http://crud-api.infinityfreeapp.com/add", formValues)
+      .post("https://my-crud-1.herokuapp.com/backend/products", formValues)
       .then((res) => {
         console.log(res.data);
         navigate("/");

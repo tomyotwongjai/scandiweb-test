@@ -14,7 +14,7 @@ const HomePage = () => {
   // Retrieve products from the database
 
   const getProducts = () => {
-    axios.get("http://crud-api.infinityfreeapp.com/").then((res) => {
+    axios.get("https://my-crud-1.herokuapp.com/backend/products").then((res) => {
       console.log(res.data);
       setProducts(res.data);
     });
@@ -25,7 +25,7 @@ const HomePage = () => {
     products.forEach((p) => {
       if (p.select) {
         axios
-          .delete(`http://crud-api.infinityfreeapp.com/${p.id}/delete`)
+          .delete(`https://my-crud-1.herokuapp.com/backend/products/${p.id}`)
           .then((res) => {
             console.log(res.data);
             getProducts();
