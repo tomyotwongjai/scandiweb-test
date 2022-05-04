@@ -108,21 +108,21 @@ const AddProduct = () => {
                     style={{ display: "none" }}
                     value
                   ></option>
-                  <option id="DVD" name="dvd" value="1">
+                  <option id="DVD" name="dvd" value="dvd">
                     DVD
                   </option>
-                  <option id="furniture" name="furniture" value="2">
-                    Furniture
-                  </option>
-                  <option id="Book" name="book" value="3">
+                  <option id="Book" name="book" value="book">
                     Book
+                  </option>
+                  <option id="Furniture" name="furniture" value="furniture">
+                    Furniture
                   </option>
                 </select>
               </div>
               {errorMessage && ( <span className="error">{errorMessage}</span> )}
             </div>
           </div>
-          {select === "1" && (
+          {select === "dvd" && (
             <div id=" dvd" className="selection__container">
               <div className="inner__selection">
                 <span> Size (MB)</span>
@@ -141,7 +141,28 @@ const AddProduct = () => {
               </div>
             </div>
           )}
-          {select === "2" && (
+                 {select === "book" && (
+            <div className="selection__container">
+              <div className="inner__selection">
+                <span>Weight (KG)</span>
+                <div className="inner__in-selection">
+                  <input
+                    id="weigth"
+                    type="value"
+                    name="weight"
+                    onChange={handleChange}
+                    maxLength="3"
+                    required
+                  />
+                  {errors.weight && (
+                    <span className="error">{errors.weight}</span>
+                  )}
+                </div>
+                <p id="type_desc">Please provide product Weight.</p>
+              </div>
+            </div>
+          )}
+          {select === "furniture" && (
             <div id="furniture" className="selection__container">
               <div className="inner__selection">
                 <span>Height (CM)</span>
@@ -190,28 +211,7 @@ const AddProduct = () => {
               </div>
             </div>
           )}
-          {select === "3" && (
-            <div id="dvd" className="selection__container">
-              <div className="inner__selection">
-                <span>Weight (KG)</span>
-
-                <div className="inner__in-selection">
-                  <input
-                    id="weigth"
-                    type="value"
-                    name="weight"
-                    onChange={handleChange}
-                    maxLength="3"
-                    required
-                  />
-                  {errors.weight && (
-                    <span className="error">{errors.weight}</span>
-                  )}
-                </div>
-                <p id="type_desc">Please provide product Weight.</p>
-              </div>
-            </div>
-          )}
+   
         </div>
       </form>
     </main>
