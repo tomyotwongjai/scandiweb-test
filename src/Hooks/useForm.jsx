@@ -123,8 +123,9 @@ const useForm = (callback) => {
     }
   };
 
-  const handleSelect = (e) => {
-    setSelect(e.target.value);
+  const handleSelect = (event) => {
+    setSelect(event.target.value);
+  
   };
 
   // Handle Form Input
@@ -148,7 +149,8 @@ const useForm = (callback) => {
 
     if (
       Object.keys(errors).length === 0 &&
-      Object.keys(formValues).length !== 0
+      Object.keys(formValues).length !== 0 &&
+      select !== ""
     ) {
       callback();
     } else {

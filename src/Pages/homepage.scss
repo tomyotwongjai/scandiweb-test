@@ -1,12 +1,18 @@
 // Header styles
 
 .app__header {
-  background-color: #f5f5f5;
+  background-color: transparent;
   width: 100%;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
   h1 {
     margin: 32px 64px;
@@ -22,6 +28,8 @@
 
     button {
       border: 1px solid #ccc;
+      color: #ccc;
+      background-color: #895061;
       border-radius: 5px;
       margin: 10px;
       padding: 10px;
@@ -54,11 +62,16 @@
   .product__container {
     height: 180px;
     width: 300px;
-    border: 1px solid #ccc;
+    border: 1px solid #ccc ;
     margin: 20px;
+
+    .product__details{
+      color: #ccc;
+    }
 
     .delete-checkbox {
       margin: 10px;
+     
     }
 
     .product__details {
@@ -66,10 +79,4 @@
     }
   }
 
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, minmax(100px, 1fr));
-  }
-  @media (max-width: 480px) {
-    display: block;
-  }
 }

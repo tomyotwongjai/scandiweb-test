@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import useForm from "../Hooks/useForm";
 import axios from "axios";
@@ -10,7 +10,7 @@ const AddProduct = () => {
 
   const formSubmit = () => {
     axios
-      .post("https://my-crud-1.herokuapp.com/backend/products", formValues)
+      .post("https://localhost/backend/products", formValues)
       .then((res) => {
         console.log(res.data);
         navigate("/");
@@ -23,9 +23,9 @@ const AddProduct = () => {
     handleChange,
     formValues,
     errors,
+    errorMessage,
     select,
     handleSelect,
-    errorMessage,
     handleSubmit,
   } = useForm(formSubmit);
 
@@ -57,9 +57,6 @@ const AddProduct = () => {
       >
         <div className="product__selection">
           <div className="selection__container">
-            {/* {errorMessage && (
-              <p style={{ color: "red", fontSize: "15px" }}>{errorMessage}</p>
-            )} */}
             <div className="inner__selection">
               <span>SKU</span>
               <div className="inner__in-selection">
@@ -101,10 +98,10 @@ const AddProduct = () => {
 
               <div className="inner__in-selection">
                 <select
-                  required
-                  id="productType"
+                  id="type"
                   name="type"
                   onChange={handleSelect}
+                  required
                 >
                   <option
                     label="Please Select"
@@ -121,11 +118,10 @@ const AddProduct = () => {
                     Book
                   </option>
                 </select>
-                {errors.type && <span className="error">{errors.type}</span>}
               </div>
+              {errorMessage && ( <span className="error">{errorMessage}</span> )}
             </div>
           </div>
-
           {select === "1" && (
             <div id=" dvd" className="selection__container">
               <div className="inner__selection">
