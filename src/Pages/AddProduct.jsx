@@ -98,8 +98,8 @@ const AddProduct = () => {
 
               <div className="inner__in-selection">
                 <select
-                  id="type"
-                  name="type"
+                  id="productType"
+                  name="productType"
                   onChange={handleSelect}
                   required
                 >
@@ -108,13 +108,13 @@ const AddProduct = () => {
                     style={{ display: "none" }}
                     value
                   ></option>
-                  <option name="dvd" value="1">
+                  <option id="DVD" name="dvd" value="1">
                     DVD
                   </option>
-                  <option name="furniture" value="2">
+                  <option id="furniture" name="furniture" value="2">
                     Furniture
                   </option>
-                  <option name="book" value="3">
+                  <option id="Book" name="book" value="3">
                     Book
                   </option>
                 </select>

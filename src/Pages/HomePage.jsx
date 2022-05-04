@@ -46,10 +46,10 @@ const HomePage = () => {
             <button
               className="button__add"
               onClick={() => {
-                navigate("/Product-Add");
+                navigate("/add-product");
               }}
             >
-              Add Product
+              Add
             </button>
 
             <button
@@ -69,7 +69,7 @@ const HomePage = () => {
             <div className="product__container">
               <input
                 type="checkbox"
-                className="delete-checkbox"
+                className=".delete-checkbox"
                 onChange={(e) => {
                   product.select = e.target.checked;
                   setProducts(products);
