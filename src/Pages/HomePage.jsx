@@ -37,22 +37,37 @@ const HomePage = () => {
     });
   };
 
+  // <input type="button" onclick="location.href='add-product';" value="ADD">
+  //       <input id="delete-product-btn" type="submit" form="delete_form" name="submitbtn" value="MASS DELETE"></input>
+
   return (
     <>
       <main className="App">
         <header className="app__header">
           <h1>My Product List</h1>
           <div className="button__container">
-            <button
+            {/* <button
               className="button__add"
               onClick={() => {
                 navigate("/add-product");
               }}
             >
               Add
-            </button>
+            </button> */}
+            <input type="button" onClick={() => {
+              navigate("/add-product");
+            }} value="ADD" />
 
-            <button
+          <input id="delete-product-btn"
+           type="submit"
+            form="delete_form" 
+            name="submitbtn"
+            value="MASS DELETE" 
+             onClick={() => {
+                deleteProductById();
+              }}></input>
+
+            {/* <button
               name="delete"
               className="button__delete"
               id="delete-product-btn"
@@ -61,7 +76,7 @@ const HomePage = () => {
               }}
             >
               Mass Delete
-            </button>
+            </button> */}
           </div>
         </header>
         <section className="product__section">
@@ -69,7 +84,7 @@ const HomePage = () => {
             <div className="product__container">
               <input
                 type="checkbox"
-                className=".delete-checkbox"
+                className="delete-checkbox"
                 onChange={(e) => {
                   product.select = e.target.checked;
                   setProducts(products);
