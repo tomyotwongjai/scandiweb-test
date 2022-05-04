@@ -132,7 +132,7 @@ const AddProduct = () => {
                     type="value"
                     name="size"
                     onChange={handleChange}
-                    maxLength="5"
+                    maxLength="6"
                     required
                   />
                   {errors.size && <span className="error">{errors.size}</span>}
@@ -151,7 +151,7 @@ const AddProduct = () => {
                     type="value"
                     name="weight"
                     onChange={handleChange}
-                    maxLength="3"
+                    maxLength="6"
                     required
                   />
                   {errors.weight && (
@@ -172,7 +172,7 @@ const AddProduct = () => {
                     type="value"
                     name="height"
                     onChange={handleChange}
-                    maxLength="3"
+                    maxLength="6"
                     required
                   />
                   {errors.height && (
@@ -186,7 +186,7 @@ const AddProduct = () => {
                     type="value"
                     name="width"
                     onChange={handleChange}
-                    maxLength="3"
+                    maxLength="6"
                     required
                   />
                   {errors.width && (
@@ -200,7 +200,7 @@ const AddProduct = () => {
                     type="value"
                     name="length"
                     onChange={handleChange}
-                    maxLength="3"
+                    maxLength="6"
                     required
                   />
                   {errors.length && (
