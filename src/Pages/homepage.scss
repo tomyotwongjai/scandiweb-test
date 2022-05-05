@@ -40,12 +40,12 @@ $red_main: #de4848;
       text-transform: uppercase;
     }
 
-    .button__delete {
+    .btn__delete {
       &:hover {
-        background-color: var(--scandi-red);
+        background-color: $red_main;
       }
     }
-    .button__add {
+    .btn__add {
       &:hover {
         background-color: #00ece1;
       }
