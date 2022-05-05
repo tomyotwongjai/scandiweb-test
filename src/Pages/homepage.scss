@@ -1,4 +1,6 @@
 // Header styles
+$color_grey: #ccc;
+$red_main: #de4848;
 
 .app__header {
   background-color: transparent;
@@ -18,7 +20,7 @@
     margin: 32px 64px;
     font-size: 2rem;
     font-weight: bold;
-    color: var(--scandi-red);
+    color: $red_main;
   }
 
   .button__container {
@@ -27,8 +29,8 @@
     margin: 10px;
 
    input {
-      border: 1px solid #ccc;
-      color: #ccc;
+      border: 1px solid $color_grey;
+      color:  $color_grey;
       background-color: #895061;
       border-radius: 5px;
       margin: 10px;
@@ -55,19 +57,24 @@
 
 .product__section {
   display: flex;
-  flex-flow: row wrap;
-  flex: 1;
-  justify-content: flex-start;
-  align-items: flex-start;
+  flex-wrap: wrap;
+   flex: 1;
+   justify-content: flex-start;
+   align-items: flex-start;
 
   .product__container {
-    height: 180px;
+    height: 190px;
     width: 300px;
-    border: 1px solid #ccc ;
+    border: 1px solid   $color_grey;
     margin: 20px;
 
     .product__details{
-      color: #ccc;
+      color:   $color_grey;
+      font-size: 18px;
+
+      p {
+        margin: 5px;
+      }
     }
 
     .delete-checkbox {

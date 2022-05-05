@@ -1,5 +1,8 @@
 // Header styling
 
+$color-grey:#ccc;
+$red-main: #de4848;
+
 .main__header {
   background-color: transparent;
   display: flex;
@@ -15,7 +18,7 @@
     margin: 32px 64px;
     font-size: 2rem;
     font-weight: bold;
-    color: var(--scandi-red);
+    color: $red-main;
   }
 
   .header__button {
@@ -24,7 +27,8 @@
     margin: 10px;
 
     button {
-      border: 1px solid #ccc;
+      color:  $color-grey;
+      border: 1px solid  $color-grey;
       border-radius: 5px;
       margin: 10px;
       padding: 10px;
@@ -38,7 +42,7 @@
     }
     .button__cancel {
       &:hover {
-        background-color: crimson;
+        background-color:  $red-main;
       }
     }
   }
@@ -59,12 +63,10 @@
 
 .product__selection {
   font-size: 24px;
-
   width: 400px;
   margin: 30px 16px;
   padding-top: 32px;
   border-radius: 8px;
-  background: #592538;
   box-shadow: 0 1px 2px 1px rgb(0 0 0 / 15%);
   align-items: center;
 
@@ -74,7 +76,7 @@
     justify-content: center;
     .inner__selection {
       #type_desc {
-        color: gray;
+        color:  $color-grey;
         font-weight: bold;
         font-size: 16px;
       }
@@ -88,8 +90,8 @@
           height: 20px;
           width: 100%;
           border-radius: 5px;
-          border: 1px solid #ccc;
-          color: #ccc;
+          border: 1px solid  $color-grey;
+          color:  $color-grey;
          background-color: transparent;
          transition: all 0.2s ease;
 
@@ -104,7 +106,7 @@
         }
 
         select {
-          color: gray;
+          color:  $color-grey;
           background-color: transparent;
         }
       }
@@ -113,10 +115,10 @@
 }
 
 span {
-  color: gray;
+  color:  $color-grey;
 }
 .error {
-  color: red;
+  color:  $red-main;
   font-size: 12px;
   margin: 0px 16px;
   display: block;

@@ -25,7 +25,7 @@ const HomePage = () => {
     products.forEach((p) => {
       if (p.select) {
         axios
-          .delete(`https://my-crud-1.herokuapp.com/backend/products/${p.id}`)
+          .delete(`https://my-crud-1.herokuapp.com/backend/products${p.id}`)
           .then((res) => {
             console.log(res.data);
             getProducts();

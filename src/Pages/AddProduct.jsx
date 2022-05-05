@@ -7,7 +7,7 @@ import "./addproduct.scss";
 
 const AddProduct = () => {
   const navigate = useNavigate();
-
+  
   const formSubmit = () => {
     axios
       .post("https://my-crud-1.herokuapp.com/backend/products", formValues)
@@ -17,6 +17,7 @@ const AddProduct = () => {
       });
     console.log("Callback function when form is submitted!", formValues);
   };
+
 
   // custom hook to handle form input
   const {
@@ -141,7 +142,7 @@ const AddProduct = () => {
               </div>
             </div>
           )}
-                 {select === "book" && (
+          {select === "book" && (
             <div className="selection__container">
               <div className="inner__selection">
                 <span>Weight (KG)</span>
